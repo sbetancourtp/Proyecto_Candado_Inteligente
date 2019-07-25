@@ -8,6 +8,8 @@ El objetivo de este proyecto es la creación de un producto de seguridad, con la
 ### I2S
 El protocolo I2S es un protocolo muy sencillo de transferencia de audio digital. Caracterizado por su capacidad de enviar datos para canales duales de forma serial.
 
+<img src="http://avelino.atlantes.org/blog/images/dac_i2s_diagrama_tiempos.png" width = "100" >
+
 ![](http://avelino.atlantes.org/blog/images/dac_i2s_diagrama_tiempos.png)
 
 ![](https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/device.png)
