@@ -16,6 +16,9 @@ Al tratarse de un protocolo de transferencia serie, si queremos emitir audio con
 
 ![equation](https://latex.codecogs.com/gif.latex?freq%20%3D%2044100%20*%2016%20*%202%20%3D%201411200%20Hz)
 
-![equation](http://www.sciweavers.org/tex2img.php?eq=1%2Bsin%28mc%5E2%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
+### IMPLEMENTACIÓN
+
+Para realizar la parte de audio del proyecto principal, se nos dio la función de elaborar toda un módulo de audio basado en I2S el cual se muestra en la siguiente imagen.
 
 ![](https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/device.png)
+
