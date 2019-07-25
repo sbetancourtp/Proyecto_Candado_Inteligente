@@ -10,6 +10,4 @@ El protocolo I2S es un protocolo muy sencillo de transferencia de audio digital.
 
 <img src="http://avelino.atlantes.org/blog/images/dac_i2s_diagrama_tiempos.png" width = "700" >
 
-![](http://avelino.atlantes.org/blog/images/dac_i2s_diagrama_tiempos.png)
-
 ![](https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/device.png)
