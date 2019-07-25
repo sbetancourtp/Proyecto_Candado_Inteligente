@@ -18,7 +18,7 @@ Al tratarse de un protocolo de transferencia serie, si queremos emitir audio con
 
 ### IMPLEMENTACIÓN
 
-Para realizar la parte de audio del proyecto principal, se nos dio la función de elaborar toda un módulo de audio basado en I2S el cual se muestra en la siguiente imagen.
+Para realizar la parte de audio del proyecto principal, se nos dio la función de elaborar un módulo de audio basado en I2S el cual se muestra en la siguiente imagen.
 
 ![](https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/device.png)
 
