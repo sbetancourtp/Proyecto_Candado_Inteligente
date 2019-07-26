@@ -30,4 +30,4 @@ En la figura 1 se puede apreciar en mayor detalle en proceso interno y como es m
 El protocolo de comunicación UART (Universal Asynchronous Receiver Transmitter) funciona de forma dual, es decir, no cuenta con Maestro y Esclavo como la mayoría de protocolos.
 
 
-<img src="http://raw.githubusercontent.com/maarojascu/Proyecto_Candado_Inteligente/master/UART/gene.PNG" width = "750" >
+<img src="http://raw.githubusercontent.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/gene.PNG" width = "750" >
