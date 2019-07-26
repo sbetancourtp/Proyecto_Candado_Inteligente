@@ -21,3 +21,10 @@ El reloj de palabra permite al circuito receptor conocer si los datos que están
 El primer bit transmitido después de una transición del reloj de palabra es el bit menos significativo de la palabra anterior.
 
 Este protocolo constituye una forma muy fiel y robusta de transmisión de datos de audio.
+
+## UART
+La estructura interna de un módulo de comunicación UART consta principalmente de registros de corrimiento, oscilador variable (utilizado para generar el BAUD), los verificadores de las condiciones correspondiente y una lógica de control.
+Los datos que se quieren transferir o recibir se agrupan en paquetes de datos, los cuales son transmitidos a través de un registro de desplazamiento. Esto hace que la velocidad a la que se transmiten viene dada por el BAUD especificado. La lógica de control es la encargada de agregar los bits de inicio y de final de transmisión.
+En la figura 1 se puede apreciar en mayor detalle en proceso interno y como es manejado este módulo UART.
+
+El protocolo de comunicación UART (Universal Asynchronous Receiver Transmitter) funciona de forma dual, es decir, no cuenta con Maestro y Esclavo como la mayoría de protocolos.
