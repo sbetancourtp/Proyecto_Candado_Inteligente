@@ -3,13 +3,15 @@ La estructura interna de un módulo de comunicación UART consta principalmente 
 Los datos que se quieren transferir o recibir se agrupan en paquetes de datos, los cuales son transmitidos a través de un registro de desplazamiento. Esto hace que la velocidad a la que se transmiten viene dada por el BAUD especificado. La lógica de control es la encargada de agregar los bits de inicio y de final de transmisión.
 En la figura 1 se puede apreciar en mayor detalle en proceso interno y como es manejado este módulo UART.
 
+<img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/uart.PNG" width = "750" >
+
 El protocolo de comunicación UART (Universal Asynchronous Receiver Transmitter) funciona de forma dual, es decir, no cuenta con Maestro y Esclavo como la mayoría de protocolos.
 
 <img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/gene.PNG" width = "750" >
 
 En donde CLK es el reloj del sistema, RSTN es un reset negado, cuando RSTN es 0, se hace un reset síncrono de la unidad de transmisión, START es el bit de comienzo de la transmisión. Cuando está a 1, se captura el carácter que entra por data y se empieza a enviar, DATA es el dato de 8 bits enviado o recibido, Tx es la salida serie del dato. Conecta con la línea de transmisión, READY es el estado de la transmisión; cuando READY es 1, la unidad está lista para transmitir. Y empezará en cuanto START se ponga a 1. Si READY es 0 la unidad está ocupada con el envío de un carácter, Rx es la línea de recepción serie; por donde llegan los datos en serie, RCV es la notificación de carácter recibido; es un pulso de 1 ciclo de ancho.
 El bus de datos de transmisión cuenta con 10 bits, 8 bits son de datos, un bit de START y un bit de STOP. Para transmitir, primero se poner el carácter de 8 bits en la entrada data y se activa la señal START. Se comienza a transmitir por Tx. La señal READY se pone a 0 para indicar que la unidad está ocupada. Cuando el carácter se ha terminado de enviar, READY se pone de nuevo a 1. Simultáneamente, cuando la línea está en reposo y no se ha recibido nada, la señal RCV está a 0. Al recibirse el bit de START por Rx, el receptor comienza a funcionar, leyendo los siguientes bits y almacenándolos internamente en su registro de desplazamiento. En el instante t1, cuando se ha recibido el bit de STOP, el dato se captura y se saca por la salida data. En el siguiente ciclo de reloj, instante t2 (en el cronograma el tiempo se ha exagerado para que se aprecie), aparece un pulso de un ciclo de reloj de anchura (exagerado también en el dibujo) que permita capturar el dato en un registro externo.
-
+https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/gene.PNG
 <img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/clktx.PNG" width = "750" >
 <img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/j1soc.PNG" width = "750" >
 
