@@ -18,17 +18,21 @@ Esta interfaz es muy cómoda. Para usar UART $T_x y R_x$ en nuestros diseños, s
 ## Especificaciones
 
 A la hora de definir el protocolo de comunicación UART, es de suma importancia indicar la velocidad de operación, la cual es medida en BAUDios. Esta medida nos permite especificar cuántos bits por segundo se van a transmitir y se configura mediante un registro de propósito específico, que varía dependiendo del lenguaje de programación utilizado, en nuestro caso Verilog. Otro de los factores a definir, son cuántos bits de parada se agregaran al final de cada paquete de datos y si habrá o no bit de paridad. En nuestro caso lo definimos de la siguiente forma:
+
     8 bits de datos
     1 bit de inicio
     1 bit de parada
     Sin paridad
     9600 Baud de velocidad de transmisión
+    
 El módulo GPS planteado a utilizar es el Neo-6-m el cual se comunicará mediante protocolo UART al FPGA. Mediante un pulsador se habilitará la recepción del paquete de datos por parte del FPGA para así guardar en registros la señal enviada por el módulo GPS. 
 Para el funcionamiento apropiado del Neo 6 M, este debe alimentarse con 5V, conectar el pin neutro Gnd y conectar los dos pines de transmisión y recepción $T_x$ y $R_x$ al puerto de comunicación UART de nuestro FPGA. 
 El módulo GPS que se va a utilizar envía los datos mediante una cadena de caracteres, por lo tanto es necesario agregar un módulo decodificador que permita interpretar de manera precisa los datos de interés, en nuestro caso la latitud y longitud actual de nuestro dispositivo. 
 Por último, cada vez que el pulsador GPS es utilizado, los datos nuevos obtenidos se sobre-escriben a los antiguos para así mantener la información de ubicación actualizada. Esta a su vez, puede ser enviada a los distintos módulos planteados para el proyecto de ser necesario. 
+
 ## Caja negra
 El proyecto en una vista general cuenta con el siguiente esquema de caja negra, con la definición de cada una de las variables de entrada y de salida.
+
     io\_din, presente en el procesador, datos de entrada.
     io\_dout, presente en el procesador, datos de salida a los periféricos.
     io\_addr, presente en el procesador, dirección de cada periférico.
@@ -39,8 +43,11 @@ El proyecto en una vista general cuenta con el siguiente esquema de caja negra, 
     rd, lectura de datos en los periféricos.
     wr, escritura de datos en los periféricos.
     d\_out, salida de datos de cada periférico.
+    
 <img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/caja.PNG" width = "500" >
+
 Dentro de esta caja negra, encontramos el procesador J1 que selecciona las funciones del proyecto y podemos notar, las cajas negras de cada uno de los periféricos, NFC, I2S, SPI, UART como también un decodificador. Estas cajas negras del periférico son externas para fusionarse con el procesador, pero la del módulo UART como tal, la vemos a continuación con sus variables definidas. 
+
     START como inicialización
     CLK reloj del sistema
     RSTN es el reset 
@@ -53,16 +60,26 @@ Dentro de esta caja negra, encontramos el procesador J1 que selecciona las funci
     Tx Es la transmisión de los datos, que va conectada posteriormente a la entrada del GPS
     Rx Es la recepción de los datos, que viene conectada de la salida del GPS
 Tenemos entonces el siguiente esquema de caja negra del módulo UART
+
 <img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/cnpu.PNG" width = "750" >
+
 Y también la caja negra del periférico UART que es el conectado al procesador J1.
+
 <img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/addr_J1.png" width = "750" >
- En esta, podemos observar que se mantienen las variables anteriores pero cuenta con unos registros y es realmente lo que va conectado a el procesador. Dichos registros se cargan de la siguiente manera.
+
+En esta, podemos observar que se mantienen las variables anteriores pero cuenta con unos registros y es realmente lo que va conectado a el procesador. Dichos registros se cargan de la siguiente manera.
+ 
 <img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/register_addr_uart.jpg" width = "400" >
+
 ## Diagramas de flujo
 ### Transmisión Tx
+
 <img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/bloquestx.PNG" width = "500" >
+
 ### Recepción Rx
+
 <img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/bloquesrx.PNG" width = "500" >
+
 ## Máquina de estados
 ### Transmisión Tx
 Se tienen las siguientes entradas
