@@ -121,3 +121,15 @@ La señal Rx se registra, para cumplir con las normas de diseño asíncrono, y s
 Un contador de 4 bits realiza la cuenta de los bits recibidos (cuenta cada pulso de $CLK_{BAUD}$). Se pone a 0 con la microórden CLEAR.
 Por último tenemos el controlador, que genera las microórdenes BAUDGEN, LOAD, CLEAR y la señal de interfaz RCV. La señal load se activa para que el dato recibido se almacene en el registro de datos de 8 bits, de manera que se mantenga estable durante la recepción del siguiente carácter.\\
 $BAUDEN_Rx$ es el generador de baudios para recepción. El receptor tiene su propio generador de baudios que es diferente al del transmisor. En el transmisor, al activar su generador con la micro-orden BAUDEN, emite inmediatamente un pulso. Sin embargo, en el receptor, se emite en la mitad del periodo. De esta forma se garantiza que el dato se lee en la mitad del periodo, donde es mucho más estable (y la probabilidad de error es menor).
+
+
+En el cronograma se puede ver cómo al recibir el flanco de bajada del bit de START BAUDEN se activa, para que comience a funcionar el reloj del receptor. Sin embargo, hasta que no ha alcanzado la mitad del periodo de bit no se pone a 1. A partir de entonces, los pulsos coinciden con la mitad de los periodos de los bits recibidos
+
+## Banco de pruebas
+
+Se hace uso de CuteCom, que es un terminal serial gráfico, como minicom.
+Actualmente se ejecuta en Linux.
+Está dirigido principalmente a desarrolladores de hardware u otras personas que necesitan un terminal para hablar con sus dispositivos. Es un software gratuito y se distribuye bajo la Licencia Pública General de GNU versión 2, que puede encontrar en el archivo COPYING. Está escrito usando la biblioteca Qt por Trolltech. Siga este enlace para visitar la página del proyecto sourceforge.
+CuteCom no usa las autotools (autoconf, automake, libtool, etc.) En su lugar, "configure" es simplemente un script de envoltura que llama a qmake.
+\section{Software - Hardware}
+Con el periférico UART funcionando correctamente y haciendo la unión con SPI, I2S e I2C (Figura 5) se envían desde software las siguientes instrucciones al J1 para que este funcione como se es deseado.
