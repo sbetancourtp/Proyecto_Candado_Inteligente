@@ -1,0 +1,6 @@
+verilog work ../i2s.v
+verilog work ../div_freq.v
+verilog work ../div_freq2.v
+verilog work ../fifo16bit_two.v
+verilog work ../paral_serial.v
+verilog work ../enable.v
