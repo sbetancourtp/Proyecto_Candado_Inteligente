@@ -3,7 +3,7 @@ Proyecto final de la materia Digital 1.
 
 ## OBJETIVO
 El objetivo de este proyecto es la creación de un producto de seguridad, con la capacidad de ser desbloqueado de muchas maneras diferentes para poder brindar seguridad de una forma más versatil y rapida.
-## PROTOCOLO
+## PROTOCOLOS UTILIZADOS
 
 ### I2S
 El protocolo I2S es un protocolo muy sencillo de transferencia de audio digital. Caracterizado por su capacidad de enviar datos para canales duales de forma serial.
