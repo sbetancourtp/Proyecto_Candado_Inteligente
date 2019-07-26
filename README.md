@@ -1,7 +1,7 @@
 # Proyecto_Candado_Inteligente
 Proyecto final de la materia Digital 1.
 
-<img src="https://cdn.masterlock.com/masterlock/resources/img/bluetooth/4400-4401-padlocks.png" width = "500" >
+<img src="https://assets.pcmag.com/media/images/442565-master-lock-4401dlh-outdoor-bluetooth-lock.jpg?width=333&height=245" width = "500" >
 
 ## OBJETIVO
 El objetivo de este proyecto es la creación de un producto de seguridad, con la capacidad de ser desbloqueado de muchas maneras diferentes para poder brindar seguridad de una forma más versatil y rapida.
