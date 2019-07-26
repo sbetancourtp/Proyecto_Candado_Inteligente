@@ -91,3 +91,33 @@ Las micro-órdenes que genera son
     BAUDEN: Activa el temporizador de bits.
     LOAD: Carga el registro de desplazamiento.
     READY: Indica cuando se ha terminado de transmitir.
+    
+Como se puede ver tiene tres estados principales
+
+    IDLE: Estado de reposo. Permanece en este estado indefinidamente, hasta que se activa la orden START para empezar a enviar el bus de datos.
+    START: Comienzo de transmisión de un caracter.
+    TRANS: Transmitiendo dato hasta que se active READY e indica que se deja dejó de transmitir.
+
+### Recepción Rx
+Como se puede ver tiene cuatro estados principales
+
+    IDLE: Estado de reposo. Esperando a recibir el bit de START por Rx. En cuanto se recibe se pasa al siguiente estado.
+    RCV: Recibiendo datos. Se activa el temporizador de bits mediante la micro-orden BAUDGEN y se van recibiendo todos los bits, que se almacenan en el registro de desplazamiento. Cuando se han recibido 10 bits (1 de START + 8 de datos + 1 de STOP) la salida del contador (bitc) estará a 10 y se pasa al siguiente estado.
+    LOAD: Almacenamiento del dato recibido. Se activa la micro-orden load para guardar el dato recibido (8 bits) en el registro de datos.
+    DAV: (Data Available). Señalización de que existe un dato disponible. Se pone a uno la señal RCV para que los circuitos externos puedan capturar el dato.
+    
+## Diagrama de bloques
+
+Este diagrama se divide en la ruta de datos (Data Path) y el controlador (Máquina de estados) 
+
+### Transmisión Tx
+
+Hay dos microórdenes que genera el controlador: BAUDEN y LOAD, con las que activa el temporizador de bits y la carga del registro de desplazamiento respectivamente. Load también se usa para poner a cero el contador de bits.
+El dato a transmitir se recibe por data, y se registra para cumplir con las normas del diseño síncrono. El controlador genera también la señal READY para indicar cuándo se ha terminado de transmitir.
+
+### Recepción Rx
+
+La señal Rx se registra, para cumplir con las normas de diseño asíncrono, y se introduce por el bit más significativo de un registro de desplazamiento de 10 bits. El desplazamiento se realiza cuando llega un pulso por la señal $CLK_{BAUD}$, proveniente del generador de baudios. Este generador sólo funciona cuando la micro-orden BAUDEN está activada.
+Un contador de 4 bits realiza la cuenta de los bits recibidos (cuenta cada pulso de $CLK_{BAUD}$). Se pone a 0 con la microórden CLEAR.
+Por último tenemos el controlador, que genera las microórdenes BAUDGEN, LOAD, CLEAR y la señal de interfaz RCV. La señal load se activa para que el dato recibido se almacene en el registro de datos de 8 bits, de manera que se mantenga estable durante la recepción del siguiente carácter.\\
+$BAUDEN_Rx$ es el generador de baudios para recepción. El receptor tiene su propio generador de baudios que es diferente al del transmisor. En el transmisor, al activar su generador con la micro-orden BAUDEN, emite inmediatamente un pulso. Sin embargo, en el receptor, se emite en la mitad del periodo. De esta forma se garantiza que el dato se lee en la mitad del periodo, donde es mucho más estable (y la probabilidad de error es menor).
