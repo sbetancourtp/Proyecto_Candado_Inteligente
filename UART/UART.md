@@ -140,8 +140,10 @@ Actualmente se ejecuta en Linux.
 Está dirigido principalmente a desarrolladores de hardware u otras personas que necesitan un terminal para hablar con sus dispositivos. Es un software gratuito y se distribuye bajo la Licencia Pública General de GNU versión 2, que puede encontrar en el archivo COPYING. Está escrito usando la biblioteca Qt por Trolltech. Siga este enlace para visitar la página del proyecto sourceforge.
 CuteCom no usa las autotools (autoconf, automake, libtool, etc.) En su lugar, "configure" es simplemente un script de envoltura que llama a qmake.
 ## Software - Hardware
-Con el periférico UART funcionando correctamente y haciendo la unión con SPI, I2S e I2C (Figura 5) se envían desde software las siguientes instrucciones al J1 para que este funcione como se es deseado.
+Con el periférico UART funcionando correctamente y haciendo la unión con SPI, I2S e I2C se envían desde software las siguientes instrucciones al J1 mediante instrucciones desde el lenguaje de programación GForth (app.js) para que este funcione como se desea.
 
 <img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/register_addr_uart.jpg" width = "400" >
  
+Cada dirección de adrr es es configurada de acuerdo a lo escrito por software. Las direccones de adrr se ven a continuación 
+
 <img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/addr_J1.png" width = "550" >
