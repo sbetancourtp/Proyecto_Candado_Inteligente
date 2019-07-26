@@ -2,7 +2,7 @@
 Proyecto final de la materia Digital 1.
 
 ## OBJETIVO
-El objetivo de este proyecto es la creación de un producto de seguridad, con la capacidad de ser desbloqueado de muchas maneras diferentes para poder brindar seguridad de una forma ms versatil y rapida.
+El objetivo de este proyecto es la creación de un producto de seguridad, con la capacidad de ser desbloqueado de muchas maneras diferentes para poder brindar seguridad de una forma más versatil y rapida.
 ## PROTOCOLOS
 
 ### I2S
