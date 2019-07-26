@@ -72,7 +72,7 @@ Y también la caja negra del periférico UART que es el conectado al procesador 
 
 En esta, podemos observar que se mantienen las variables anteriores pero cuenta con unos registros y es realmente lo que va conectado a el procesador. Dichos registros se cargan de la siguiente manera.
  
-<img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/addr_J1.png" width = "400" >
+<img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/addr_J1.png" width = "550" >
 
 ## Diagramas de flujo
 ### Transmisión Tx
@@ -146,4 +146,4 @@ CuteCom no usa las autotools (autoconf, automake, libtool, etc.) En su lugar, "c
 ## Software - Hardware
 Con el periférico UART funcionando correctamente y haciendo la unión con SPI, I2S e I2C (Figura 5) se envían desde software las siguientes instrucciones al J1 para que este funcione como se es deseado.
 
-<img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/register_addr_uart.jpeg" width = "500" >
+<img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/register_addr_uart.jpg" width = "500" >
