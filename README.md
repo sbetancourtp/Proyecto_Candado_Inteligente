@@ -3,7 +3,7 @@ Proyecto final de la materia Digital 1.
 
 ## OBJETIVO
 El objetivo de este proyecto es la creación de un producto de seguridad, con la capacidad de ser desbloqueado de muchas maneras diferentes para poder brindar seguridad de una forma más versatil y rapida.
-## NUESTRO PROTOCOLO
+## PROTOCOLO
 
 ### I2S
 El protocolo I2S es un protocolo muy sencillo de transferencia de audio digital. Caracterizado por su capacidad de enviar datos para canales duales de forma serial.
@@ -20,4 +20,4 @@ El reloj de palabra permite al circuito receptor conocer si los datos que están
 
 El primer bit transmitido después de una transición del reloj de palabra es el bit menos significativo de la palabra anterior.
 
-
+Este protocolo constituye una forma muy fiel y robusta de transmisión de datos de audio.
