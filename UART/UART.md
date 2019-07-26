@@ -68,20 +68,20 @@ Tenemos entonces el siguiente esquema de caja negra del módulo UART
 
 Y también la caja negra del periférico UART que es el conectado al procesador J1.
 
-<img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/cnpu.png" width = "750" >
+<img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/cnpu.PNG" width = "500" >
 
 En esta, podemos observar que se mantienen las variables anteriores pero cuenta con unos registros y es realmente lo que va conectado a el procesador. Dichos registros se cargan de la siguiente manera.
  
-<img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/addr_j1.png" width = "400" >
+<img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/addr_J1.png" width = "400" >
 
 ## Diagramas de flujo
 ### Transmisión Tx
 
-<img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/WhatsApp%20Image%202019-07-26%20at%2014.13.08(1).jpeg" width = "500" >
+<img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/WhatsApp%20Image%202019-07-26%20at%2014.13.08(1).jpeg" heigth = "400" >
 
 ### Recepción Rx
 
-<img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/WhatsApp%20Image%202019-07-26%20at%2014.13.08.jpeg" width = "500" >
+<img src="https://github.com/sbetancourtp/Proyecto_Candado_Inteligente/blob/master/UART/WhatsApp%20Image%202019-07-26%20at%2014.13.08.jpeg" heigth = "400" >
 
 ## Máquina de estados
 ### Transmisión Tx
